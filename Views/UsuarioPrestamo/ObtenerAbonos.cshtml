@@ -1,0 +1,62 @@
+﻿@model AuthPrestamos.Models.Prestamo
+
+@{
+    ViewData["Title"] = "Detalle Abonos";
+}
+
+<h1>Detalle</h1>
+
+<div>
+    <h4>Monto</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Usted Debe:$
+        </dt>
+        <dd class="col-sm-10">
+           
+            @Model.CantidadInteres
+        </dd>
+    </dl>
+</div>
+<div>
+
+    @if (Model.Abonos != null && Model.Abonos.Count > 0)
+    {
+        List<Abono> ListaAbonos = Model.Abonos.ToList();
+
+        <label>Abonos</label>
+        @if (ListaAbonos != null && ListaAbonos.Count > 0)
+        {
+
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Id </th>
+                        <th>Abono </th>
+                        <th>Saldo por Pagar</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Abono item in ListaAbonos)
+                    {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.CantidadAbono</td>
+                        <td>@item.Saldo</td>
+                        <td>@item.Fecha</td>
+
+                    </tr>
+                    }
+                </tbody>
+            </table>
+
+            <label>Total de abonos: @ListaAbonos.Sum(x => x.CantidadAbono)</label>
+        }
+
+
+
+
+    }
+</div>

@@ -1,0 +1,54 @@
+﻿@model AuthPrestamos.Models.Prestamo;
+@{
+    ViewData["Title"] = "Home Page";
+
+}
+
+<div class="text-center">
+
+    <h1 class="display-4">Bienvenido al Sistema de Prestamos</h1>
+
+    <hr />
+
+    @if (TempData["mensaje"] != null)
+    {
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            @TempData["mensaje"]
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    }
+
+    <br />
+    <div class="form-group">
+
+        <h3>
+            Préstamo por: $
+            @if (ViewBag.CantidadPrestamo != null)
+            {
+                <label>@ViewBag.CantidadPrestamo</label>
+            }
+            else
+            {
+                <label>00.00</label>
+            }
+        </h3>
+
+        <h3>
+            Estado Cuenta: $
+            @if (ViewBag.CantidadPrestamoInteres != null)
+            {
+                <label>@ViewBag.CantidadPrestamoInteres</label>
+            }
+            else
+            {
+                <label>00.00</label>
+            }
+        </h3>
+
+
+    </div>
+</div>
+
+

@@ -1,0 +1,33 @@
+﻿@model AuthPrestamos.Models.Abono;
+@{
+    ViewData["Title"] = "Home Page";
+
+}
+
+<div class="text-center">
+
+    <h1 class="display-4">Abonos</h1>
+
+    <hr />
+
+</div>
+<hr />
+
+<form method="post" action="/UsuarioPrestamo/AddAbono">
+
+    <div class="form-group ">
+
+        <h4>Realizar Abono</h4>
+        <div class="form-row">
+
+            <label class="col-form-label">Cantidad: </label>
+            <input asp-for="CantidadAbono" class="form-control col-4" placeholder="$0.00" />
+
+
+            <input type="submit" value="Realizar Abono" class="btn btn-primary" />
+        </div>
+
+    </div>
+</form>
+
+<br />
